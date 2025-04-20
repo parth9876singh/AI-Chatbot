@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyBuddy AI Tutor</title>
+    <link rel="stylesheet" href="ai.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <div class="logo">
+                <span class="logo-icon">🧠</span>
+                <span>AI Personal life Coach</span>
+            </div>
+            <button id="showCardsBtn" style="display: none;">
+                <span>📚 Review Flashcards</span>
+            </button>
+        </div>
+        
+        <div class="main-content">
+            <div class="chat-section">
+                <div class="chat-display" id="chatDisplay">
+                    <!-- Messages will appear here -->
+                    <div class="ai-chat-box">
+                        <img src="ai.png" alt="" id="aiimg" width="35">
+                        <div class="ai-chat-area">
+                            Hello, how can I help you today?
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-area">
+                    <input type="text" id="prompt" placeholder="Ask any question...">
+                    <button id="sendBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 2L11 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="image-upload-btn" id="imageUploadBtn" title="Upload Image">
+                        <i class="fas fa-image"></i>
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                    </button>
+                    <button class="microphone-btn" id="microphoneBtn" title="Voice Input">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="flashcard-section" id="flashcardContainer">
+                <button class="close-flashcards" id="closeFlashcards">✕</button>
+                <div class="flashcard-container">
+                    
+                    <div class="flashcard" id="flashcard">
+                         <div class="flashcard-inner">
+                            <img id="img" src="https://as2.ftcdn.net/v2/jpg/03/82/57/89/1000_F_382578916_1FZowkxxlRZy9ZpQE67TgqaB2dOBRrRI.jpg" alt="" > 
+                         </div>
+                         
+                     </div>
+                </div>
+           </div>
+
+    <script src="ai.js"></script>
+</body>
+</html>

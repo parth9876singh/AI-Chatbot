@@ -1,0 +1,483 @@
+
+:root {
+    --primary: #4361ee;
+    --secondary: #3f37c9;
+    --accent: #4895ef;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --success: #4cc9f0;
+    --warning: #f72585;
+    --radius: 12px;
+    --shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 900px;
+    height: 90vh;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: white;
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.logo-icon {
+    font-size: 1.5rem;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.chat-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+}
+
+.chat-display {
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: var(--radius);
+    margin-bottom: 15px;
+    scroll-behavior: smooth;
+}
+.user-chat-box {
+    display: flex;
+    flex-direction: row-reverse;
+    align-self: flex-end;
+    margin-bottom: 15px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.ai-chat-box {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+    margin-bottom: 15px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.user-chat-area {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 50px 0px 50px 50px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    max-width: 70%;
+    margin-right: 10px;
+    word-wrap: break-word;
+}
+
+.ai-chat-area {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 0px 50px 50px 50px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    max-width: 70%;
+    margin-left: 10px;
+    word-wrap: break-word;
+}
+
+#userimg, #aiimg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    filter: drop-shadow(2px 2px 10px black);
+    flex-shrink: 0;
+    position: static;
+}
+
+.message {
+    margin-bottom: 15px;
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    line-height: 1.4;
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.user-message {
+    background: var(--primary);
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+
+.bot-message {
+    background: white;
+    color: var(--dark);
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+#prompt {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 30px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s;
+}
+
+#prompt:focus {
+    border-color: var(--accent);
+}
+
+#sendBtn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+#microphoneBtn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#sendBtn:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.flashcard-section {
+    width: 350px;
+    background: white;
+    border-left: 1px solid #e9ecef;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s;
+}
+
+.flashcard-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flashcard {
+    width: 100%;
+    height: 400px;
+    perspective: 1000px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+.flashcard-inner1 {
+    position: relative;
+    width: 90%;
+    height: 45%;
+    margin-left: 10px;
+    margin-bottom:50px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    background-color: rgb(77, 81, 213);
+    color:white;
+    font-weight: bold;
+   
+   
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 90%;
+    height: 45%;
+    margin-left: 10px;
+    margin-bottom:50px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: var(--radius);
+}
+
+.flashcard-front {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+}
+
+.flashcard-back {
+    background: white;
+    color: var(--dark);
+    transform: rotateY(180deg);
+    border: 1px solid #e9ecef;
+}
+
+.flashcard h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.flashcard p {
+    font-size: 1.1rem;
+    color: #6c757d;
+}
+
+.flashcard-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.rate-btn {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.rate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.rate-btn.easy {
+    background: var(--success);
+}
+
+.rate-btn.medium {
+    background: var(--accent);
+}
+
+.rate-btn.hard {
+    background: var(--warning);
+}
+
+.progress-section {
+    margin-top: auto;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: var(--radius);
+}
+
+.progress-bar {
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--accent), var(--success));
+    width: 0%;
+    transition: width 0.5s;
+}
+
+.typing-indicator {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    background: #6c757d;
+    border-radius: 50%;
+    margin: 0 2px;
+    animation: typing 1.4s infinite;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-5px); }
+}
+
+.close-flashcards {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #6c757d;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .app-container {
+        height: 100vh;
+        border-radius: 0;
+    }
+    
+    .flashcard-section {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        transform: translateX(100%);
+        z-index: 100;
+        background: white;
+    }
+    
+    .flashcard-section.active {
+        transform: translateX(0);
+    }
+}
+#img{
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    box-shadow: 2px 2px rgb(170, 167, 167);
+}
+
+
+/* Add these to your existing CSS */
+.image-upload-btn {
+    /* background-color: #4a6fa5;
+    color: white; */
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 8px;
+    position: relative;
+}
+
+.image-upload-btn:hover {
+    /* background-color: #3a5a8f; */
+    background: var(--secondary);
+}
+
+.uploaded-image {
+    max-width: 100%;
+    max-height: 300px; 
+    border-radius: 8px;
+    margin-top: 8px;
+    object-fit: contain;
+}
+
+.input-area {
+    display: flex;
+    gap: 8px;
+}
+
+#imageInput {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
