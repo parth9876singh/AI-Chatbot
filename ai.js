@@ -7,7 +7,7 @@ const imageUploadBtn = document.querySelector("#imageUploadBtn");
 const imageInput = document.querySelector("#imageInput");
 const sendBtn = document.querySelector("#sendBtn");
 
-const api_url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyDFu4DREzvH0Z6ITZGrSwyYVmQrhnmJMTQ";
+const api_url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=";
 let user = {
     data: "",
     image: null
